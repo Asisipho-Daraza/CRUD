@@ -48,7 +48,9 @@ export class PhonebookService {
     // return 'Deleting One Phone Book...';
   }
 
-  // searchPhonebookByNameOrNumber(options: any) {
-  //   // return 'Searching Phone Book...';
-  // }
+  searchPhonebookByNameOrNumber(options: any) {
+    return this.__phonebookModel.find(options).exec();
+
+    //return 'Searching Phone Book...';
+  }
 }

@@ -15,20 +15,18 @@ import { Request } from 'express';
 export class PhonebookController {
   constructor(private __phonebook: PhonebookService) {}
 
-  //   @Get('search')
-  //   async searchProduct(@Req() req: Request) {
-  // let options:any = {};
-  //if (req.query.s)
-  //{
-  //options = {
-  //  $or:[
-  //   {name:new RegExp(req.query.s.toString(),'i')}
-  //]
-  // 	}
-  // 	}
-  //return this.__phonebook.searchPhonebookByNameOrNumber(options);
-  //     return this.__phonebook.searchPhonebookByNameOrNumber();
-  //   }
+  @Get('search')
+  async searchProduct(@Req() req: Request) {
+    let options: any = {};
+    req.query.s;
+    {
+      options = {
+        $or: [{ name: new RegExp(req.query.s.toString(), 'i') }],
+      };
+    }
+    return this.__phonebook.searchPhonebookByNameOrNumber(options);
+    //     return this.__phonebook.searchPhonebookByNameOrNumber();
+  }
 
   @Post()
   async addNewPhonebook(@Body() phonebook: { phone: number; name: string }) {
